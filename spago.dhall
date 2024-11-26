@@ -20,7 +20,6 @@
   , "partial"
   , "prelude"
   , "profunctor"
-  , "psci-support"
   , "quickcheck"
   , "quickcheck-laws"
   , "record"

@@ -34,8 +34,8 @@ instance gDualVariantLast ∷
       _l = Proxy ∷ Proxy l
 
       Dual (DualD fieldPrs fieldSer) = pre _l (Record.get _l duals)
-      prs = (inj _l <$> fieldPrs)
-      ser = case_ # on _l fieldSer
+      prs = (inj @l <$> fieldPrs)
+      ser = case_ # on @l fieldSer
 
       d = dual prs ser
 
@@ -57,8 +57,8 @@ else instance gDualVariantCons ∷
       Dual (DualD prs ser) = gDualV (Proxy ∷ Proxy dlt) pre duals'
       Dual (DualD fieldPrs fieldSer) = pre _l (Record.get _l duals)
 
-      prs' = (inj _l <$> fieldPrs) <|> (Variant.expand <$> prs)
-      ser' = ser # on _l fieldSer
+      prs' = (inj @l <$> fieldPrs) <|> (Variant.expand <$> prs)
+      ser' = ser # on @l fieldSer
 
       d = dual prs' ser'
 

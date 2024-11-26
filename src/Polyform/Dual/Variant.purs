@@ -34,8 +34,8 @@ on prefix label d (Dual (DualD restPrs restSer)) =
     expandCase = unsafeCoerce
   in
     dual
-      (inj label <$> prs <|> ((expandCase <$> restPrs )))
-      (restSer # Variant.on label ser)
+      (inj @l <$> prs <|> ((expandCase <$> restPrs )))
+      (restSer # Variant.on @l ser)
 
 case_ ∷ ∀ i p s. Applicative (p i) ⇒ Dual p s i (Variant ())
 case_ = dual prs ser
